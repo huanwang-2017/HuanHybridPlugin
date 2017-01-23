@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT app-config (persistence-resources, resources, plugin-list, clear, custom)>
+<!ATTLIST app-config cacheable CDATA "true">
+<!ATTLIST app-config ver CDATA "v1.0">
+
+<!ELEMENT persistence-resources (resource)>
+<!ELEMENT resources (resource)>
+<!ELEMENT resource (#PCDATA)>
+
+<!-- resource属性 -->
+<!ATTLIST resource name CDATA #REQUIRED>
+<!ATTLIST resource value CDATA #REQUIRED>
+<!ATTLIST resource ver CDATA "v1.0">
+<!ATTLIST resource keepMilliseconds CDATA -1>
+
+<!ELEMENT plugin-list (plugin)>
+<!ELEMENT plugin (application)>
+
+<!-- plugin 属性 -->
+<!ATTLIST plugin id CDATA #REQUIRED>
+<!ATTLIST plugin name CDATA #REQUIRED>
+<!ATTLIST plugin project CDATA #REQUIRED>
+<!ATTLIST plugin file CDATA>
+<!ATTLIST plugin des CDATA>
+<!ATTLIST plugin icon CDATA>
+<!ATTLIST plugin isMain CDATA "false">
+<!ATTLIST plugin initiative CDATA "false">
+<!ATTLIST plugin parent CDATA>
+
+<!ELEMENT application (activity)>
+<!ATTLIST application
+        class CDATA #REQUIRED
+        >
+
+<!ELEMENT activity (intent)>
+
+<!-- activity 属性 -->
+<!ATTLIST activity
+        name CDATA #REQUIRED>
+<!ATTLIST activity class CDATA #REQUIRED>
+<!ATTLIST activity layout CDATA>
+<!ATTLIST activity isMain CDATA "false">
+
+<!ELEMENT intent (#PCDATA)>
+<!ELEMENT clear (#PCDATA)>
+<!ATTLIST clear
+        ids CDATA #REQUIRED
+        >
+
+
+<!ELEMENT custom (#PCDATA)>
+<!ATTLIST custom
+        value CDATA #REQUIRED
+        >
